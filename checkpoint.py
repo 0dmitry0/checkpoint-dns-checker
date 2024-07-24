@@ -44,10 +44,7 @@ def dns_checker(name, address_from_cp):
     except dns.resolver.NoAnswer:
         status = 'Нет ответа от DNS-сервера!'
         return False, address_from_dns, status
-    except dns.resolver.NXDOMAIN:
-        if not name.endswith('.kozh.lc'): #указать DNS-суффикс
-            name += '.kozh.lc' #указать DNS-суффикс
-            
+    except dns.resolver.NXDOMAIN:  
         status = 'Запись не найдена!'
         return False, address_from_dns, status
 
@@ -55,8 +52,7 @@ def create_csv(filename, data):
     with open(filename, "a", newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(data.keys())
-        writer.writerow(data.values())
-        
+        writer.writerow(data.values())      
 
 name = ''
 address = ''
