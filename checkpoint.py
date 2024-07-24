@@ -25,8 +25,8 @@ class CSVWriter:
         self.file.close()
 
 def dns_checker(name, address_from_cp):
-    address_from_dns = ''
-    if not name.endswith('.kozh.lc'): #указать DNS-суффикс
+    #address_from_dns = ''
+    #if not name.endswith('.kozh.lc'): #указать DNS-суффикс
         name += '.kozh.lc' #указать DNS-суффикс
     try:
         record = dns.resolver.resolve(name, 'A')
@@ -45,6 +45,9 @@ def dns_checker(name, address_from_cp):
         status = 'Нет ответа от DNS-сервера!'
         return False, address_from_dns, status
     except dns.resolver.NXDOMAIN:
+        if not name.endswith('.kozh.lc'): #указать DNS-суффикс
+            name += '.kozh.lc' #указать DNS-суффикс
+            
         status = 'Запись не найдена!'
         return False, address_from_dns, status
 
