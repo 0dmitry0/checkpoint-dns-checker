@@ -89,13 +89,13 @@ with APIClient(client_args) as client:
             csv_writer.close()
         elif result[2] == 'Запись не найдена!' and result[0] == False:
             csv_record_status = 'Запись не найдена!'
-            csv_writer = CSVWriter('example.csv')
+            csv_writer = CSVWriter('output.csv')
             csv_writer.write_row(csv_name_from_cp, csv_ip_from_cp, csv_record_status, csv_record_status)
             csv_writer.close()
         elif result[0] == False:
             csv_record_status = 'Не совпадает'
             csv_ip_from_dns = result[1]
-            csv_writer = CSVWriter('example.csv')
+            csv_writer = CSVWriter('output.csv')
             csv_writer.write_row(csv_name_from_cp, csv_ip_from_cp, csv_ip_from_dns, csv_record_status)
             csv_writer.close()
         elif result[2] == 'Запись не найдена!' and result[0] == False:
