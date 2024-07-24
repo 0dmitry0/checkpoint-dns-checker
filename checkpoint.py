@@ -27,7 +27,7 @@ class CSVWriter:
 def dns_checker(name, address_from_cp):
     #address_from_dns = ''
     #if not name.endswith('.kozh.lc'): #указать DNS-суффикс
-        name += '.kozh.lc' #указать DNS-суффикс
+    #    name += '.kozh.lc' #указать DNS-суффикс
     try:
         record = dns.resolver.resolve(name, 'A')
         print ('Данная запись найдена на DNS-сервере!', name)
